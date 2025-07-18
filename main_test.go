@@ -54,6 +54,7 @@ func TestCafeNegative(t *testing.T) {
 		fmt.Println(responseBad.Body.String())
 	}
 }
+
 func TestCafeCount(p *testing.T) {
 	handler := http.HandlerFunc(mainHandle)
 	requestsCount := []struct {
@@ -96,7 +97,7 @@ func TestCafeSearch(s *testing.T) {
 		search    string
 		wantCount int
 	}{
-		{"Search non-existent", "фасоль", 0},
+		{"Search 'фасоль'", "фасоль", 0},
 		{"Search 'кофе'", "кофе", 2},
 		{"Search 'вилка'", "вилка", 1},
 	}
